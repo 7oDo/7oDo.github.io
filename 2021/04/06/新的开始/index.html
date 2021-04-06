@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Packet Tracer - 实施静态和动态 NAT - 如是</title>
+    <title> - 如是</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="
-使用 PAT 配置动态 NAT为 NAT 转换配置将被允许的流量1234R2(config)#ip access-list standard R2NATR2(config-std-nacl)#pe,"> 
+    <meta name="description" content="重启博客计划。
+"> 
     <meta name="author" content="如是"> 
     <link rel="alternative" href="atom.xml" title="如是" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.jpg"> 
@@ -33,7 +33,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">Packet Tracer - 实施静态和动态 NAT</h3>
+    <h3 class="subtitle"></h3>
     <div class="social">
         <div>
             <div class="share">
@@ -48,21 +48,15 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">Packet Tracer - 实施静态和动态 NAT</h1>
+        <h1 class="title"></h1>
         <div class="stuff">
-            <span>四月 05, 2021</span>
+            <span>四月 06, 2021</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
-
 
         </div>
         <div class="content markdown">
-            <p><img src="https://s2.ax1x.com/2019/05/19/EjVhe1.png" alt="image"><span id="more"></span></p>
-<h2 id="使用-PAT-配置动态-NAT"><a href="#使用-PAT-配置动态-NAT" class="headerlink" title="使用 PAT 配置动态 NAT"></a>使用 PAT 配置动态 NAT</h2><h3 id="为-NAT-转换配置将被允许的流量"><a href="#为-NAT-转换配置将被允许的流量" class="headerlink" title="为 NAT 转换配置将被允许的流量"></a>为 NAT 转换配置将被允许的流量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#ip access-list standard R2NAT</span><br><span class="line">R2(config-std-nacl)#permit 192.168.10.0 0.0.0.255</span><br><span class="line">R2(config-std-nacl)#permit 192.168.20.0 0.0.0.255</span><br><span class="line">R2(config-std-nacl)#permit 192.168.30.0 0.0.0.255</span><br></pre></td></tr></table></figure>
-<h3 id="为-NAT-配置地址池"><a href="#为-NAT-配置地址池" class="headerlink" title="为 NAT 配置地址池"></a>为 NAT 配置地址池</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#ip nat pool NAT 209.165.202.129 209.165.202.130 netmask 255.255.255.128</span><br></pre></td></tr></table></figure>
-<h3 id="将命名-ACL-与-NAT-池相关联，并启用-PAT"><a href="#将命名-ACL-与-NAT-池相关联，并启用-PAT" class="headerlink" title="将命名 ACL 与 NAT 池相关联，并启用 PAT"></a>将命名 ACL 与 NAT 池相关联，并启用 PAT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#ip nat inside source list R2NAT  pool NAT overload</span><br></pre></td></tr></table></figure>
-<h3 id="配置-NAT-接口"><a href="#配置-NAT-接口" class="headerlink" title="配置 NAT 接口"></a>配置 NAT 接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#inter f0&#x2F;0</span><br><span class="line">R2(config-if)#ip nat inside</span><br><span class="line">R2(config-if)#inter s0&#x2F;0&#x2F;0</span><br><span class="line">R2(config-if)#ip nat inside</span><br><span class="line">R2(config-if)#inter s0&#x2F;0&#x2F;1</span><br><span class="line">R2(config-if)#ip nat inside</span><br><span class="line">R2(config-if)#inter s0&#x2F;1&#x2F;0</span><br><span class="line">R2(config-if)#ip nat outside</span><br></pre></td></tr></table></figure>
-<h2 id="配置静态-NAT"><a href="#配置静态-NAT" class="headerlink" title="配置静态 NAT"></a>配置静态 NAT</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R2(config)#ip nat inside source static 192.168.20.254 209.165.202.131</span><br></pre></td></tr></table></figure>
+            <p>重启博客计划。</p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -85,11 +79,11 @@
     <div id='gitalk-container' class="comment link"
 		data-enable='true'
         data-ae='false'
-        data-ci=''
-        data-cs=''
-        data-r=''
-        data-o=''
-        data-a=''
+        data-ci='62ea6d9943b3669ac641'
+        data-cs='f871793a96eab3437a952481247169d5fd8ed8e7'
+        data-r='ap0l1o.github.io'
+        data-o='Ap0l1o'
+        data-a='Ap0l1o'
         data-d='false'
     >查看评论</div>
 
@@ -97,7 +91,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-PAT-%E9%85%8D%E7%BD%AE%E5%8A%A8%E6%80%81-NAT"><span class="toc-number">1.</span> <span class="toc-text">使用 PAT 配置动态 NAT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA-NAT-%E8%BD%AC%E6%8D%A2%E9%85%8D%E7%BD%AE%E5%B0%86%E8%A2%AB%E5%85%81%E8%AE%B8%E7%9A%84%E6%B5%81%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">为 NAT 转换配置将被允许的流量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA-NAT-%E9%85%8D%E7%BD%AE%E5%9C%B0%E5%9D%80%E6%B1%A0"><span class="toc-number">1.2.</span> <span class="toc-text">为 NAT 配置地址池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E5%91%BD%E5%90%8D-ACL-%E4%B8%8E-NAT-%E6%B1%A0%E7%9B%B8%E5%85%B3%E8%81%94%EF%BC%8C%E5%B9%B6%E5%90%AF%E7%94%A8-PAT"><span class="toc-number">1.3.</span> <span class="toc-text">将命名 ACL 与 NAT 池相关联，并启用 PAT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-NAT-%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.4.</span> <span class="toc-text">配置 NAT 接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81-NAT"><span class="toc-number">2.</span> <span class="toc-text">配置静态 NAT</span></a></li></ol>	
+				
         </div>
     
 </div>

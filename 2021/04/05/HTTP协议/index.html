@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HTTP协议 - 如是</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="0x01 HTTP协议简介HTTP协议（Hypertext Transfer Protocol，超文本传输协议）是关于如何在网络上传输超级文本（即HTML文档）的协议。HTTP协议规定了Web的基本,"> 
+    <meta name="author" content="如是"> 
+    <link rel="alternative" href="atom.xml" title="如是" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.jpg"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">如是</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">HTTP协议</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">HTTP协议</h1>
+        <div class="stuff">
+            <span>四月 05, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Web/" rel="tag">Web</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="0x01-HTTP协议简介"><a href="#0x01-HTTP协议简介" class="headerlink" title="0x01 HTTP协议简介"></a>0x01 HTTP协议简介</h3><p>HTTP协议（Hypertext Transfer Protocol，超文本传输协议）是关于如何在网络上传输超级文本（即HTML文档）的协议。HTTP协议规定了Web的基本运作过程，以及浏览器与Web服务器之间的通信细节。HTTP协议采用客户/服务器通信模式，服务器端为HTTP服务器（即Web服务器）；客户端为HTTP客户程序，浏览器是最常见的HTTP客户程序。</p>
+<span id="more"></span>
+
+<p>HTTP是应用层协议，建立在TCP/IP协议的基础上。HTTP协议使用可靠的TCP连接，默认端口是80。</p>
+<p>客户端与服务器端之间的一次信息交换包括以下过程：</p>
+<ol>
+<li>客户与服务器端建立TCP连接</li>
+<li>客户端发出HTTP请求</li>
+<li>服务器端发回相应的HTTP响应</li>
+<li>客户端与服务器端之间的TCP连接关闭</li>
+</ol>
+<h3 id="0x02-HTTP请求格式"><a href="#0x02-HTTP请求格式" class="headerlink" title="0x02 HTTP请求格式"></a>0x02 HTTP请求格式</h3><p>HTTP协议规定，HTTP请求由三部分构成：</p>
+<ul>
+<li>请求方法、URI和HTTP协议的版本</li>
+<li>请求头</li>
+<li>请求正文</li>
+</ul>
+<p>HTTP协议规定，请求头和请求正文之间必须以空行分隔（即只有CRLF符号的行），表示请求头已经结束，接下来是请求正文。</p>
+<p>注：</p>
+<ul>
+<li>CR：Carriage Return，对应ASCII中转义字符<code>\r</code>，表示回车</li>
+<li>LF：Linefeed，对应ASCII中转义字符<code>\n</code>，表示换行</li>
+<li>CRLF：Carriage Return &amp; Linefeed，<code>\r\n</code>，表示回车并换行</li>
+</ul>
+<p>从概念的来历上讲，“回车”和“换行”来自打字机时代。“回车”保持当前打字的垂直位置不变，打字位置回滚到当前的行首；“换行”保持当前打字水平的水平位置不变，滚到下一行；“回车”和“换行”组合使用即我们今天所理解的换行，移动到下一行的行首（回车并换行）。到了操作系统出现的时代，受限于内存和软盘空间的不足，一些操作系统的设计者采用单个字符来表示我们今天理解的“换行符”，但也有操作系统的设计者保持了用“回车”+“换行”来表示“换行符”。如：</p>
+<ul>
+<li>Unix系统用 <code>\n</code>表示换行符</li>
+<li>Mac OS系统用<code>\r</code>表示换行符</li>
+<li>Windows系统用<code>\r\n</code>表示换行符</li>
+</ul>
+<h3 id="0x03-HTTP响应格式"><a href="#0x03-HTTP响应格式" class="headerlink" title="0x03 HTTP响应格式"></a>0x03 HTTP响应格式</h3><p>和HTTP请求相似，HTTP响应也由3部分构成，分别是：</p>
+<ul>
+<li>HTTP协议的版本、状态码和描述</li>
+<li>响应头</li>
+<li>响应正文</li>
+</ul>
+<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p>HTTP响应的状态码分类：</p>
+<ul>
+<li>1XX：信息提示，表示临时的响应</li>
+<li>2XX：响应成功，表名服务器成功地接收了客户的请求</li>
+<li>3XX：重定向</li>
+<li>4XX：客户端错误，表明问题出在客户端的请求</li>
+<li>5XX：服务器错误，表明服务器由于遇到某种错误而不能响应客户端请求</li>
+</ul>
+<p>常见的状态代码：</p>
+<ul>
+<li>200：响应成功</li>
+<li>400：错误的请求。客户发送的HTTP请求不正确。</li>
+<li>404：文件不存在。在服务器上没有客户要求访问的文档。</li>
+<li>405：服务器不支持客户的请求方式</li>
+<li>500：服务器内部错误</li>
+</ul>
+<h4 id="响应正文"><a href="#响应正文" class="headerlink" title="响应正文"></a>响应正文</h4><p>响应正文是服务器返回的具体数据，即浏览器真正请求访问的信息，最常见的是HTML文档。HTTP响应头与响应正文之间也必须用空行分隔。</p>
+<p>HTTP请求和响应的正文部分可以是任意格式的数据，HTTP协议采用MIME协议来规范正文的数据格式，浏览器在接收到HTTP响应后会根据响应正文的不同类型来进行不同的处理（对于IE浏览器来说，如果响应正文是DOC文档，就会借助安装在本机Word程序来打开这份DOC文档；如果响应正文是RAR压缩文档，就会弹出弹出一个下载窗口来让用户下载；最常见的是响应正文为HTML文档，这时浏览器会在自身的窗口中展示该文档。</p>
+<p>MIME（Multipurpose Internet Mail Extension）是指多用途网络邮件扩展协议，这里的邮件不单纯指E-Mail，还可以包括通过各种应用层协议在网络传输的数据。因此，HTTP协议中的请求正文和响应正文也可以看作是邮件。MIME规定了邮件的标准数据格式，从而使得接收方能够看得懂发送方发送的邮件。</p>
+<p>遵守MIME协议的数据类型统称为MIME类型。在HTTP请求头和HTTP响应头中都有一个Content-type项，用来指定请求正文部分或响应正文部分的MIME类型。常见的MIME类型与文件扩展名之间的对应关系：</p>
+<table>
+<thead>
+<tr>
+<th align="center">文件扩展名</th>
+<th align="center">MIME 类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">未知的数据类型或不可识别的扩展名</td>
+<td align="center">content/unknow</td>
+</tr>
+<tr>
+<td align="center">.bin、.exe、.o、.a、.z</td>
+<td align="center">application/octet-stream</td>
+</tr>
+<tr>
+<td align="center">.pdf</td>
+<td align="center">application/pdf</td>
+</tr>
+<tr>
+<td align="center">.zip</td>
+<td align="center">application/zip</td>
+</tr>
+<tr>
+<td align="center">.tar</td>
+<td align="center">application/x-tar</td>
+</tr>
+<tr>
+<td align="center">.gif</td>
+<td align="center">image/gif</td>
+</tr>
+<tr>
+<td align="center">.jpg、.jpeg</td>
+<td align="center">image/jpeg</td>
+</tr>
+<tr>
+<td align="center">.htm、.html</td>
+<td align="center">text/html</td>
+</tr>
+<tr>
+<td align="center">.text、.c、.h、.txt、.java</td>
+<td align="center">text/plain</td>
+</tr>
+<tr>
+<td align="center">.mpg、.mpeg</td>
+<td align="center">video/mpeg</td>
+</tr>
+<tr>
+<td align="center">.xml</td>
+<td align="center">application/xml</td>
+</tr>
+</tbody></table>
+<p>参考文献：</p>
+<p>[^ 1]:卫琴. Tomcat 与 Java Web 开发技术详解[M]. 电子工业出版社, 2009.<br>[^ 2]: <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2006/04/post_213.html">http://www.ruanyifeng.com/blog/2006/04/post_213.html</a><br>[^ 3]:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b03ad01acd69">https://www.jianshu.com/p/b03ad01acd69</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-HTTP%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">0x01 HTTP协议简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-HTTP%E8%AF%B7%E6%B1%82%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">0x02 HTTP请求格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-HTTP%E5%93%8D%E5%BA%94%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">0x03 HTTP响应格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">3.1.</span> <span class="toc-text">状态码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E6%AD%A3%E6%96%87"><span class="toc-number">3.2.</span> <span class="toc-text">响应正文</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
